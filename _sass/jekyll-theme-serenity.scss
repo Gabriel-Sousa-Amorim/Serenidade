@@ -1,99 +1,258 @@
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 @import '_var.scss';
 
+$font-general: 'Prata', Courier, monospace;
+$font-mono: monospace;
+
 @mixin colored-border {
-    border-image: radial-gradient(circle, $sky-050 0%, $sky-300 150%) 1;
-    border-width: 2px;
+  border-image: radial-gradient(circle, $sky-050 0%, $sky-300 150%) 1;  border-width: 2px;
 }
 
 * {
-    font-family: 'Prata', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    text-align: justify;
-    text-justify: auto;
-    color: $zinc-950;
-    transition: all 0.3s;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+  text-justify: auto;
+  transition: all 0.3s;
 }
 
-html, body {
-    background-color: $zinc-050;
+html,
+body {
+  background-color: $zinc-050;
+  font-family: $font-general;
 }
 
 li {
-    display: flex;
+  display: flex;
 }
 
-a, a:visited {
-    color: $blue-950;
-    &:hover {
-        color: $blue-500;
-    }
+a,
+a:visited {
+  color: $blue-950;
+
+  &:hover {
+    color: $blue-500;
+  }
 }
 
 li::before {
-    content: "•";
-    margin-right:10px; 
+  content: "•";
+  margin-right: 10px;
 }
 
 #header-title {
-    color: $gray-950;
-    text-decoration: none;
+  color: $gray-950;
+  text-decoration: none;
 }
 
 main {
-    margin: 0 20% 20px;
-    padding: 0 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  margin: 0 20% 20px;
+  padding: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-header, footer {
-    @include colored-border;
-    background-color: $sky-100;
-    padding: 10px 5%;
-    min-height: 100px;
+header,
+footer {
+  @include colored-border;
+  background-color: $sky-100;
+  padding: 10px 5%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &>* {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    &>* {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        color: $zinc-950;
-    }
+    height: 100%;
+    color: $zinc-950;
+  }
 }
 
 header {
-    margin-bottom: 20px;
-    border-bottom-style: solid;
+  margin-bottom: 20px;
+  border-bottom-style: solid;
 }
 
 footer {
-    margin-top: 20px;
-    border-top-style: solid;
+  margin-top: 20px;
+  border-top-style: solid;
 }
 
 .publications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post {
+  &-title {
+    text-transform: capitalize;
+  };
+
+  &-container {
     display: flex;
     flex-direction: column;
-    gap:20px;
+  };
+
+  &-desc>* {
+    font-size: small;
+    font-weight: 500;
+  };
+
+  &-date {
+    justify-content: end;
+    text-align: end;
+  };
 }
-.post {
-    &-title {
-        text-transform: capitalize;
-    };
-    &-container {
-        display: flex;
-        flex-direction: column;
-    };
-    &-desc > * {
-        font-size: small;
-        font-weight: 500;
-    };
-    &-date {
-        justify-content: end;
-        text-align: end;
-    };
+
+.highlight {
+  $plaintext: $stone-050 !default;
+  $string: $green-400 !default;
+  $literal: $blue-400 !default;
+  $keyword: $red-400 !default;
+  $error-foreground: $gray-050 !default;
+  $error-background: $red-400 !default;
+  $comment: $gray-400 !default;
+  $preprocessor: $amber-400 !default;
+  $name-space: $amber-400 !default;
+  $name-attribute: $sky-400 !default;
+  $operator: $sky-400 !default;
+  $keyword-type: $rose-600 !default;
+  $regex: $orange-400 !default;
+  $string-escape: $amber-400 !default;
+  $deleted: $red-400 !default;
+  $header: $sky-400 !default;
+  min-height: 80px;
+  display: flex;
+  background-color: $stone-950;
+  color: $plaintext;
+  overflow-x: overlay;
+  table td {
+    padding: 5px;
+  }
+
+  table pre {
+    margin: 0;
+    & > * > * {
+      font-family: monospace !important;
+    }
+  }
+
+  .w {
+    color: $plaintext;
+  }
+
+  .err {
+    color: $error-foreground;
+    background-color: $error-background;
+  }
+
+  .c,
+  .cd,
+  .cm,
+  .c1,
+  .cs {
+    color: $comment;
+  }
+
+  .cp {
+    color: $preprocessor;
+  }
+
+  .o,
+  .ow {
+    color: $operator;
+  }
+
+  .p,
+  .pi {
+    color: $operator;
+  }
+
+  .gi {
+    color: $string;
+  }
+
+  .gd {
+    color: $deleted;
+  }
+
+  .gh {
+    color: $header;
+    font-weight: bold;
+  }
+
+  .k,
+  .kn,
+  .kp,
+  .kr,
+  .kv {
+    color: $keyword;
+  }
+
+  .kc,
+  .kt,
+  .kd {
+    color: $keyword-type;
+  }
+
+  .s,
+  .sb,
+  .sc,
+  .sd,
+  .s2,
+  .sh,
+  .sx,
+  .s1 {
+    color: $string;
+  }
+
+  .sr {
+    color: $regex;
+  }
+
+  .si,
+  .se {
+    color: $string-escape;
+  }
+
+  .nt,
+  .nn,
+  .nc,
+  .no,
+  .nf {
+    color: $name-space;
+  }
+
+  .na {
+    color: $name-attribute;
+  }
+
+  .m,
+  .mf,
+  .mh,
+  .mi,
+  .il,
+  .mo,
+  .mb,
+  .mx {
+    color: $literal;
+  }
+
+  .ss, .dl {
+    color: $string;
+  }
+}
+
+code {
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  & > span {  
+    font-family: $font-mono;
+  }
 }
