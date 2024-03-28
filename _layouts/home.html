@@ -1,0 +1,34 @@
+---
+layout: default
+---
+{{ content }}
+
+<hr>
+
+<p>{{page.title}}</p>
+<p>{{page.excerpt}}</p>
+<p>{{page.url}}</p>
+<p>{{page.date}}</p>
+<p>{{page.id}}</p>
+<p>{{page.categories}}</p>
+<p>{{page.collection}}</p>
+<p>{{page.tags}}</p>
+<p>{{page.dir}}</p>
+<p>{{page.name}}</p>
+<p>{{page.path}}</p>
+<p>{{page.next}}</p>
+<p>{{page.previous}}</p>
+
+<section class="publications-container">
+  <h2>Postagens</h2>
+  {% for post in site.posts %}
+    <hr>
+    <div class="post-container">
+      <h3>
+        <a class="post-title" href="{{ post.url }}">{{ post.title }}</a>
+      </h3>
+      <div class="post-desc">{{ post.excerpt }}</div>
+      <small class="post-date">{{post.date}}</small>
+    </div>
+  {% endfor %}
+</section>
