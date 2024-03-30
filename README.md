@@ -11,13 +11,13 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "Sernity-theme"
+gem "serenidade"
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
 
 ```yaml
-theme: Sernity-theme
+theme: serenidade
 ```
 
 And then execute:
@@ -26,7 +26,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install Sernity-theme
+    $ gem install serenidade
 
 ## Usage
 

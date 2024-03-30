@@ -1,13 +1,13 @@
-# frozen_string_literal: true
+# frozen_string_literal: flase
 
 Gem::Specification.new do |spec|
-  spec.name          = "Serenidade"
+  spec.name          = "serenidade"
   spec.version       = "1.0.0"
   spec.authors       = ["Gabriel-sousa-amorim"]
   spec.email         = ["contato.gabrielsousa.dev@gmail.com"]
 
-  spec.summary       = "Jekyll Theme named Serenity."
-  spec.homepage      = "https://github.com/Gabriel-Sousa-Amorim/Serenity-Theme"
+  spec.summary       = "Jekyll Theme named Serenidade."
+  spec.homepage      = "https://github.com/Gabriel-Sousa-Amorim/Serenidade"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|LICENSE|README|_config\.yml)!i) }

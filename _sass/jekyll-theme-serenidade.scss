@@ -5,7 +5,7 @@ $font-general: 'Prata', Courier, monospace;
 $font-mono: "DM Mono", monospace;
 
 @mixin colored-border {
-  border-image: radial-gradient(circle, $sky-050 0%, $sky-300 150%) 1;
+  border-image: radial-gradient(circle, $green-050 0%, $green-300 150%) 1;
   border-width: 2px;
 }
 
@@ -59,7 +59,7 @@ main {
 header,
 footer {
   @include colored-border;
-  background-color: $sky-100;
+  background-color: $green-100;
   padding: 10px 5%;
   min-height: 100px;
 
