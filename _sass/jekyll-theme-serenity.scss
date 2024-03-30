@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Prata&display=swap');
 @import '_var.scss';
 
 $font-general: 'Prata', Courier, monospace;
-$font-mono: monospace;
+$font-mono: "DM Mono", monospace;
 
 @mixin colored-border {
-  border-image: radial-gradient(circle, $sky-050 0%, $sky-300 150%) 1;  border-width: 2px;
+  border-image: radial-gradient(circle, $sky-050 0%, $sky-300 150%) 1;
+  border-width: 2px;
 }
 
 * {
@@ -40,7 +41,8 @@ li::before {
   margin-right: 10px;
 }
 
-#header-title {
+#header-title,
+.nav-links>a {
   color: $gray-950;
   text-decoration: none;
 }
@@ -51,6 +53,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 70vh;
 }
 
 header,
@@ -59,9 +62,6 @@ footer {
   background-color: $sky-100;
   padding: 10px 5%;
   min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 
   &>* {
     display: flex;
@@ -72,11 +72,18 @@ footer {
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
   border-bottom-style: solid;
 }
 
 footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 3px;
   margin-top: 20px;
   border-top-style: solid;
 }
@@ -88,6 +95,7 @@ footer {
 }
 
 .post {
+
   &-title {
     text-transform: capitalize;
   };
@@ -95,17 +103,24 @@ footer {
   &-container {
     display: flex;
     flex-direction: column;
-  };
+    gap: 5px;
+  }
+
+  ;
 
   &-desc>* {
     font-size: small;
     font-weight: 500;
-  };
+  }
+
+  ;
 
   &-date {
-    justify-content: end;
-    text-align: end;
-  };
+    align-self: end;
+    color: $zinc-400;
+  }
+
+  ;
 }
 
 .highlight {
@@ -130,13 +145,15 @@ footer {
   background-color: $stone-950;
   color: $plaintext;
   overflow-x: overlay;
+
   table td {
     padding: 5px;
   }
 
   table pre {
     margin: 0;
-    & > * > * {
+
+    &>*>* {
       font-family: monospace !important;
     }
   }
@@ -242,17 +259,20 @@ footer {
     color: $literal;
   }
 
-  .ss, .dl {
+  .ss,
+  .dl {
     color: $string;
   }
 }
 
 code {
   overflow-x: scroll;
+
   &::-webkit-scrollbar {
     display: none;
   }
-  & > span {  
+
+  &>span {
     font-family: $font-mono;
   }
 }
