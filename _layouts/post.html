@@ -2,12 +2,27 @@
 layout: default
 title: title
 ---
-
-<section>
+<section class="post-title-container">
     <h1>{{ page.title }}</h1>
+    <h1>{{ page.author }}</h1>
     <p class="post-date">{{page.date | date: "%Y, %b %d"}}</p>
 </section>
-
-{{ content }}
-
 <hr>
+{{ content }}
+<hr>
+{%- if site.posts.size > 0 -%}
+<section class="publications-container">
+<h2>Esse é o fim, Deseja ver mais postagens?</h2>
+  <h3>Postagens.</h3>
+    {% for post in site.posts %}
+    <div class="post-container">
+      <h3>
+      <a class="post-title" href="{{ post.url }}">{{ post.title }}</a>
+    </h3>
+    <div class="post-desc">{{ post.excerpt }}</div>
+    <small class="post-date">{{post.date | date: "%Y, %b %d"}}</small>
+    <hr>
+  </div>
+  {% endfor %}
+</section>
+{%- endif -%}

@@ -5,8 +5,8 @@ $font-general: 'Prata', Courier, monospace;
 $font-mono: "DM Mono", monospace;
 
 @mixin colored-border {
-  border-image: radial-gradient(circle, $lime-050 0%, $lime-300 150%) 1;
-  border-width: 2px;
+  border-image: radial-gradient(circle, $zinc-050 0%, $lime-200 150%) 1;
+  border-width: 4px;
 }
 
 * {
@@ -19,7 +19,11 @@ $font-mono: "DM Mono", monospace;
 
 html,
 body {
-  background-color: $zinc-050;
+  background: rgb(2,0,36);
+  background: -moz-linear-gradient(90deg, $lime-050 -100%, $zinc-050 50%, $lime-050 200%);
+  background: -webkit-linear-gradient(90deg, $lime-050 -100%, $zinc-050 50%, $lime-050 200%);
+  background: linear-gradient(90deg, $lime-050 -100%, $zinc-050 50%, $lime-050 200%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$lime-100,endColorstr=$zinc-050,GradientType=1);
   font-family: $font-general;
 }
 
@@ -41,12 +45,6 @@ li::before {
   margin-right: 10px;
 }
 
-#header-title,
-.nav-links>a {
-  color: $gray-950;
-  text-decoration: none;
-}
-
 main {
   margin: 0 20% 20px;
   padding: 0 0 20px;
@@ -59,15 +57,14 @@ main {
 header,
 footer {
   @include colored-border;
-  background-color: $lime-100;
+  background-color: $lime-050;
   padding: 10px 5%;
   min-height: 100px;
-
   &>* {
     display: flex;
     align-items: center;
     height: 100%;
-    color: $zinc-950;
+    color: $lime-950;
   }
 }
 
@@ -77,6 +74,12 @@ header {
   justify-content: space-between;
   margin-bottom: 20px;
   border-bottom-style: solid;
+}
+
+#header-title,
+.nav-links>a {
+  color: $lime-950;
+  text-decoration: none;
 }
 
 footer {
@@ -99,6 +102,12 @@ footer {
   &-title {
     text-transform: capitalize;
   };
+
+  &-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &-container {
     display: flex;
