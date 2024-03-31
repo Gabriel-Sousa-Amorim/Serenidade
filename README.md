@@ -17,13 +17,14 @@ theme: serenidade
 ```
 
 And then execute:
-
+```bash
     $ bundle
+```
 
 Or install it yourself as:
-
+```bash
     $ gem install serenidade
-
+```
 ## Usage
 
 TODO: Write usage instructions here. Describe your available layouts, includes, sass and/or assets.
