@@ -1,12 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Prata&display=swap');
 @import '_var.scss';
 
-$font-general: 'Prata', Courier, monospace;
+$font-title: 'Prata', serif;
+$font-paragraph: 'Nunito', sans-serif;
 $font-mono: "DM Mono", monospace;
 
-@mixin colored-border {
-  border-image: radial-gradient(circle, $zinc-050 0%, $lime-200 150%) 1;
-  border-width: 4px;
+@mixin colored-border($width) {
+  border-image: radial-gradient(circle, $zinc-050 0%, $lime-300 100%) 1;
+  border-width: $width;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: $lime-050;
+  border: 2px solid #00000013;
+  &-button {
+    background-color: $lime-050;
+    border: 2px solid #00000013;
+  }
+  &-thumb {
+    background-color: $zinc-400;
+    border-radius: 20px;
+    transition: all 1s;
+    &:hover {
+      background-color: $lime-700;
+    }
+  }
+  &-track {
+    background-color: transparent;
+  }
+  &-track-piece {
+  background-color: transparent;
+  }
 }
 
 * {
@@ -20,15 +45,21 @@ $font-mono: "DM Mono", monospace;
 html,
 body {
   background: rgb(2,0,36);
-  background: -moz-linear-gradient(90deg, $lime-050 -100%, $zinc-050 50%, $lime-050 200%);
-  background: -webkit-linear-gradient(90deg, $lime-050 -100%, $zinc-050 50%, $lime-050 200%);
-  background: linear-gradient(90deg, $lime-050 -100%, $zinc-050 50%, $lime-050 200%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$lime-100,endColorstr=$zinc-050,GradientType=1);
-  font-family: $font-general;
+  background: linear-gradient(90deg, $lime-050 -50%, $zinc-050 50%, $lime-050 150%);
+  font-family: $font-paragraph;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-title;
+}
+
+hr {
+  border-style: solid;
+  @include colored-border(1px);
 }
 
 li {
-  display: flex;
+  margin-left:20px
 }
 
 a,
@@ -38,11 +69,6 @@ a:visited {
   &:hover {
     color: $blue-500;
   }
-}
-
-li::before {
-  content: "•";
-  margin-right: 10px;
 }
 
 main {
@@ -56,8 +82,8 @@ main {
 
 header,
 footer {
-  @include colored-border;
-  background-color: $lime-050;
+  @include colored-border(4px);
+  background-color: $lime-200;
   padding: 10px 5%;
   min-height: 100px;
   &>* {
@@ -77,9 +103,14 @@ header {
 }
 
 #header-title,
-.nav-links>a {
+.nav-links > h3 > a {
   color: $lime-950;
+  font-size: medium;
   text-decoration: none;
+  &:hover {
+    font-size: large;
+    color: $lime-950;
+  }
 }
 
 footer {
@@ -95,6 +126,10 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.post-page {
+  margin-top: 50px;
 }
 
 .post {

@@ -9,11 +9,15 @@ title: title
 </section>
 <hr>
 {{ content }}
-<hr>
+
 {%- if site.posts.size > 0 -%}
-<section class="publications-container">
-<h2>Esse é o fim, Deseja ver mais postagens?</h2>
-  <h3>Postagens.</h3>
+<section class="publications-container post-page">
+<h2>Esse é o fim...</h2>
+<p>Deseja ver mais postagens?</p>
+
+<hr> 
+
+  <h2>Postagens.</h2>
     {% for post in site.posts %}
     <div class="post-container">
       <h3>
