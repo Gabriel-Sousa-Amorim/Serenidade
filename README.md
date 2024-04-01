@@ -18,12 +18,12 @@ theme: serenidade
 
 And then execute:
 ```bash
-    $ bundle
+bundle
 ```
 
 Or install it yourself as:
 ```bash
-    $ gem install serenidade
+gem install serenidade
 ```
 ## Usage
 
